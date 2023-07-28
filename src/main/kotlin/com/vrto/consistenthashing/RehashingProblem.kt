@@ -57,8 +57,8 @@ private fun MutableMap<Int, MutableList<String>>.findServerByKey(key: String) =
 
 // any hash func will do, this is just an example
 private fun hash(key: String): Long {
-    val md5 = MessageDigest.getInstance("MD5")
-    val hashBytes = md5.digest(key.toByteArray(StandardCharsets.UTF_8))
+    val sha1 = MessageDigest.getInstance("SHA-1")
+    val hashBytes = sha1.digest(key.toByteArray(StandardCharsets.UTF_8))
     return (hashBytes[0].toLong() and 0xFF) or
             ((hashBytes[1].toLong() and 0xFF) shl 8) or
             ((hashBytes[2].toLong() and 0xFF) shl 16) or
